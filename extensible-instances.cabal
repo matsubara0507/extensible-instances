@@ -1,0 +1,42 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 9629cf78b66c53b33a963e94abfec153fd410f56834eeb07d785e85a3969f807
+
+name:           extensible-instances
+version:        0.1.0.0
+synopsis:       Instances of extensible data types for any type class
+description:    See README at <https://github.com/matsubara0507/extensible-instances#readme>
+category:       Data
+homepage:       https://github.com/matsubara0507/extensible-instances#readme
+bug-reports:    https://github.com/matsubara0507/extensible-instances/issues
+author:         MATSUBARA Nobutada
+maintainer:     t12307043@gunma-u.ac.jp
+copyright:      2018 MATSUBARA Nobutada
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    CHANGELOG.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/matsubara0507/extensible-instances
+
+library
+  hs-source-dirs:
+      src
+  ghc-options: -Wall
+  build-depends:
+      base >=4.7 && <5
+    , extensible
+    , lens
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_extensible_instances
+  default-language: Haskell2010

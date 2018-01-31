@@ -1,0 +1,25 @@
+name: extensible-instances
+version: 0.1.0.0
+synopsis: Instances of extensible data types for any type class
+description: See README at <https://github.com/matsubara0507/extensible-instances#readme>
+maintainer: t12307043@gunma-u.ac.jp
+author: MATSUBARA Nobutada
+copyright: 2018 MATSUBARA Nobutada
+license: MIT
+github: matsubara0507/extensible-instances
+category: Data
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+ghc-options:
+- -Wall
+
+dependencies:
+- base >=4.7 && <5
+- extensible 
+- lens
+
+library:
+  source-dirs: src
