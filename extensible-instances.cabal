@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9629cf78b66c53b33a963e94abfec153fd410f56834eeb07d785e85a3969f807
+-- hash: c436f616752ee9ce0515a6e40348e88c1bbd84ff9d230c66bf2e7737b7e4820c
 
 name:           extensible-instances
 version:        0.1.0.0
@@ -32,11 +32,58 @@ library
       src
   ghc-options: -Wall
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , cassava
+    , constraints
+    , data-default
+    , exceptions
     , extensible
     , lens
+    , monad-logger
+    , text
+    , transformers-base
+    , unordered-containers
   exposed-modules:
-      Lib
+      Data.Extensible.Effect.BaseIO
+      Data.Extensible.Effect.Logger
+      Data.Extensible.Effect.ThrowIO
+      Data.Extensible.Instances.Aeson
+      Data.Extensible.Instances.Csv
+      Data.Extensible.Instances.Default
+      Data.Extensible.Instances.Effect
   other-modules:
+      Paths_extensible_instances
+  default-language: Haskell2010
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: Driver.hs
+  hs-source-dirs:
+      test
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , cassava
+    , constraints
+    , data-default
+    , exceptions
+    , extensible
+    , extensible-instances
+    , lens
+    , monad-logger
+    , shakespeare
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers-base
+    , unordered-containers
+    , vector
+  other-modules:
+      Test.Data.Extensible.Instances.Aeson
+      Test.Data.Extensible.Instances.Csv
+      Test.Data.Extensible.Instances.Default
       Paths_extensible_instances
   default-language: Haskell2010

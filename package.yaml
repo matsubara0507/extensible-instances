@@ -18,8 +18,30 @@ ghc-options:
 
 dependencies:
 - base >=4.7 && <5
-- extensible 
+- constraints
+- extensible
 - lens
+- text
+- unordered-containers
+# Type Class package
+- aeson
+- cassava
+- data-default
+- exceptions
+- monad-logger
+- transformers-base
 
 library:
   source-dirs: src
+
+tests:
+  test:
+    main: Driver.hs
+    source-dirs: test
+    dependencies:
+    - bytestring
+    - extensible-instances
+    - shakespeare
+    - tasty
+    - tasty-hunit
+    - vector
