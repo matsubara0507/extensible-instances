@@ -6,7 +6,7 @@ Instances of extensible data type in [extensible](https://hackage.haskell.org/pa
 
 - [`aeson`](https://hackage.haskell.org/package/aeson)
     - `FromJson` and `ToJson`
-    - refer: https://github.com/fumieval/extensible/blob/master/examples/aeson.hs
+    - Behavior of `Maybe a` type is same that Aeson Generics, but its different from [example on fumieval/extensible](https://github.com/fumieval/extensible/blob/master/examples/aeson.hs).
 - [`cassava`](https://hackage.haskell.org/package/cassava)
     - `ToRecord` and `ToNamedRecord`
     - `FromNamedRecord`

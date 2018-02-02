@@ -23,7 +23,7 @@ instance Forall (KeyValue KnownSymbol FromJSON) xs => FromJSON (Record xs) where
     \m -> let k = symbolVal (proxyAssocKey m) in
       case HM.lookup (fromString k) v of
         Just a  -> Field . return <$> parseJSON a
-        Nothing -> fail $ "Missing key: " `mappend` k
+        Nothing -> Field . return <$> parseJSON Null
 
 instance Forall (KeyValue KnownSymbol ToJSON) xs => ToJSON (Record xs) where
   toJSON = Object . HM.fromList . flip appEndo [] . hfoldMap getConst' . hzipWith

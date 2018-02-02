@@ -20,23 +20,47 @@ type Sample = Record
     '[ "id" >: Int
      , "name" >: Text
      , "follow" >: [Int]
+     , "email" >: Maybe Text
      ]
 
-sample :: Sample
-sample
+sample1 :: Sample
+sample1
     = #id @= 123
    <: #name @= "matsubara"
    <: #follow @= [456,789]
+   <: #email @= Just "example"
+   <: nil
+
+sample2 :: Sample
+sample2
+    = #id @= 123
+   <: #name @= "matsubara"
+   <: #follow @= [456,789]
+   <: #email @= Nothing
    <: nil
 
 sampleJson :: ByteString
 sampleJson = encodeUtf8
+  [lt|{"email":"example","name":"matsubara","id":123,"follow":[456,789]}|]
+
+sampleJsonNull :: ByteString
+sampleJsonNull = encodeUtf8
+  [lt|{"email":null,"name":"matsubara","id":123,"follow":[456,789]}|]
+
+sampleJsonNon :: ByteString
+sampleJsonNon = encodeUtf8
   [lt|{"name":"matsubara","id":123,"follow":[456,789]}|]
 
 test_aeson :: [TestTree]
 test_aeson =
   [ testCase "decode" $
-      decode sampleJson @?= Just sample
+      decode sampleJson @?= Just sample1
+  , testCase "decode: null field" $
+      decode sampleJsonNull @?= Just sample2
+  , testCase "decode: non field" $
+      decode sampleJsonNon @?= Just sample2
   , testCase "encode" $
-      encode sample @?= sampleJson
+      encode sample1 @?= sampleJson
+  , testCase "encode: maybe" $
+      encode sample2 @?= sampleJsonNull
   ]
