@@ -8,13 +8,12 @@ module Test.Data.Extensible.Instances.Default where
 import           Data.Default                      (def)
 import           Data.Extensible
 import           Data.Extensible.Instances.Default ()
-import           Data.Text                         (Text)
 import           Test.Tasty
 import           Test.Tasty.HUnit
 
 type Sample = Record
     '[ "id" >: Int
-     , "name" >: Text
+     , "name" >: String
      , "follow" >: [Int]
      ]
 
