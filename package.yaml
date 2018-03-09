@@ -24,7 +24,6 @@ dependencies:
 - text
 - unordered-containers
 # Type Class package
-- aeson
 - cassava
 - data-default
 - exceptions
@@ -39,6 +38,7 @@ tests:
     main: Driver.hs
     source-dirs: test
     dependencies:
+    - aeson
     - bytestring
     - extensible-instances
     - shakespeare

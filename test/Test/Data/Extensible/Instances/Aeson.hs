@@ -6,12 +6,11 @@
 
 module Test.Data.Extensible.Instances.Aeson where
 
-import           Data.Aeson                      (decode, encode)
-import           Data.ByteString.Lazy            (ByteString)
+import           Data.Aeson              (decode, encode)
+import           Data.ByteString.Lazy    (ByteString)
 import           Data.Extensible
-import           Data.Extensible.Instances.Aeson ()
-import           Data.Text                       (Text)
-import           Data.Text.Lazy.Encoding         (encodeUtf8)
+import           Data.Text               (Text)
+import           Data.Text.Lazy.Encoding (encodeUtf8)
 import           Test.Tasty
 import           Test.Tasty.HUnit
 import           Text.Shakespeare.Text
