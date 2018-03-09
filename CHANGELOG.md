@@ -2,6 +2,8 @@
 
 ## Unreleased changes
 
+## 0.2.0
+
 - Remove instances
     - `FromJson`, `ToJson` in `aeson`
     - `ToRecord`, `ToNamedRecord`, `FromNamedRecord` in `cassava`
